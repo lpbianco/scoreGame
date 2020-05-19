@@ -1,0 +1,49 @@
+---== Projeto scoregame ==---
+
+Tecnologias: Maven + Spring boot
+Build: mvn clean install
+Run: java -jar scoreGame-0.0.1.jar ou executar pelo "ECLIPSE"
+Swagger: http://localhost:9090/scoregame/swagger-ui.html
+
+Junto com o código foi adicionada a pasta evidencias, a mesma comtempla evidencias de build, com o .m2 vazio e build com tests unitários,
+além de teste no Jmeeter para concorrencia, com vários usuários fazendo imput para o mesmo usuario, para validação do tratamento de concorrencia.
+
+Para a solução foi usado um HashMap para inserção dos usuários, ratificando também a atualização, o mesmo ossui complexidade de inserção O(n1), e atende perfeitamente a operação de Adicionar usuario e atualização de score.
+Para a ordenação do rankins por pntuação, é utilizado um TreeMap, onde a chave é o número de pontos, caso haja mais de um usuario com a mesma pontuação, os mesmo ficaram na mesma posição do ranking, lembrando que a montagem do ranking é
+realizada por demanda, pois podem ocorrere atualizações o tempo todo. o treeMap possui complexidade de inserção O(logN), e atende de forma performatica a montagem do ranking quando pedido.
+Para o retorno de um unico usuário através do score, é utilizado a mesma estrutura mencionada acima.
+
+Premissas:
+
+1)- Adicionar usuarios em tempo real, entrada:
+{
+"userId":<userId>,
+"points":<points>
+}
+
+2)- Retornar a posição de um usuário, busca pelo ID
+{
+"userId":<userId>,
+"score":<score>,
+"position":<position>
+}
+
+3)-Retornar a lista de todos os scores.
+OBS: A pedida do retorno não citou nada para scores na mesma posição, usuarios com mesmo score de pontos, porém a solução cobre o ocorrido.
+{
+"highscores":[
+{
+"userId":<userId>,
+"score":<score>,
+"position":<position>
+},
+{
+"userId":<userId>,
+"score":<score>,
+"position":<position>
+}
+]
+}
+
+OBS: Usuários com pontuação nula não entram na lista de retorno para retorno dos scores, e retornará vazio para o pedido deste usuário.
+
