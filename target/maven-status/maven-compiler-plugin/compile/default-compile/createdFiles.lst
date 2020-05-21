@@ -1,0 +1,13 @@
+com\br\pipa\rest\scoreGame\config\AsyncConfig.class
+com\br\pipa\rest\scoreGame\controller\ScoreGameController.class
+com\br\pipa\rest\scoreGame\exception\ScoreGameException.class
+com\br\pipa\rest\scoreGame\model\model\PositionVO.class
+com\br\pipa\rest\scoreGame\ScoreGameApplication.class
+com\br\pipa\rest\scoreGame\service\ScoreService.class
+com\br\pipa\rest\scoreGame\service\ScoreServiceImpl.class
+com\br\pipa\rest\scoreGame\config\SwaggerConfig$SpringFoxConfig.class
+com\br\pipa\rest\scoreGame\config\SwaggerConfig.class
+com\br\pipa\rest\scoreGame\model\model\SimplePositionVO.class
+com\br\pipa\rest\scoreGame\business\ScoreGameBusiness.class
+com\br\pipa\rest\scoreGame\model\model\ScoreVO.class
+com\br\pipa\rest\scoreGame\repository\ScoreGameRepository.class
